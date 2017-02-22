@@ -1,0 +1,47 @@
+{% extends 'layout.html'%}
+{% block title %}login{% endblock %}
+{% block body %} 
+<h3>Register here!</h3>
+<form action="/users" method="POST">
+	{% csrf_token %}
+	<div>
+		<label>First Name:</label>
+		<input type="text" name="first_name">
+		<p></p>
+	</div>
+	<div>	
+		<label>Last Name:</label>
+		<input type="text" name="last_name">
+		<p></p>
+	</div>
+	<div>	
+		<label>Email:</label>
+		<input type="text" name="email">
+		<p></p>
+	</div>
+	<div>	
+		<label>Password:</label>
+		<input type="password" name="password">
+		<p></p>
+	</div>
+	<div>	
+		<label>Confirm Password:</label>
+		<input type="password" name="confirm_password">
+		<p></p>
+	</div>	
+	<input type="submit" value="Register">
+</form>
+<h3>Already registered? Login here!</h3>
+<p></p>
+<form action="/sessions" method="POST">
+{% csrf_token %}
+	<label>Email:</label>
+	<input type="text" name="email">
+	<p></p>
+	<label>Password:</label>
+	<input type="password" name="password">
+	<p></p>
+	<input type="submit" value="Login">
+</form>
+		
+{% endblock %}
