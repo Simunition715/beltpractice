@@ -3,8 +3,7 @@ from . import views
 
 
 urlpatterns = [
-    url(r'^$', views.index),
-    url(r'^users$',views.create_user),
-    url(r'^success$',views.success),
-    url(r'^sessions$',views.sessions),
+    url(r'^$',views.index),
+    url(r'^process$',views.process)
 ]
+

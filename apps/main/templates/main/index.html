@@ -1,47 +1,61 @@
-{% extends 'layout.html'%}
-{% block title %}login{% endblock %}
-{% block body %} 
-<h3>Register here!</h3>
-<form action="/users" method="POST">
-	{% csrf_token %}
-	<div>
-		<label>First Name:</label>
-		<input type="text" name="first_name">
-		<p></p>
-	</div>
-	<div>	
-		<label>Last Name:</label>
-		<input type="text" name="last_name">
-		<p></p>
-	</div>
-	<div>	
-		<label>Email:</label>
-		<input type="text" name="email">
-		<p></p>
-	</div>
-	<div>	
-		<label>Password:</label>
-		<input type="password" name="password">
-		<p></p>
-	</div>
-	<div>	
-		<label>Confirm Password:</label>
-		<input type="password" name="confirm_password">
-		<p></p>
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+	<title></title>
+	
+</head>
+<body>
+
+<div id="wrapper">
+
+
+
+		<form action="/process" method="POST">
+		  {% csrf_token %}
+			<input type="submit" name="reset" value="Reset">
+		</form>
+		<h1>Ninja <span id="gold">Gold</span>: {{request.session.gold}}</h1>
+		<div class="box">
+			<h3>Farm</h3>
+			<h4>(earn 10-20 golds)</h4>
+			<form method="POST" action="/process">
+			{% csrf_token %}
+			<input type="submit" name="farmgold" value="Find Gold!">
+			</form>
+		</div>
+		<div class="box">
+			<h3>Cave</h3>
+			<h4>(earn 5-10 golds)</h4>
+			<form method="POST" action="/process">
+			{% csrf_token %}
+			<input type="submit" name="cavegold" value="Find Gold!">
+			</form>
+		</div>
+		<div class="box">
+			<h3>House</h3>
+			<h4>(earn 2-5 golds)</h4>
+			<form method="POST" action="/process">
+			{% csrf_token %}
+			<input type="submit" name="housegold" value="Find Gold!">
+			</form>
+		</div>
+		<div class="box">
+			<h3>Casino</h3>
+			<h4>(earns/takes 0-50 golds)</h4>
+			<form method="POST" action="/process">
+			{% csrf_token %}
+			<input type="submit" name="casinogold" value="Find Gold!">
+			</form>
+		</div>
+			<h2>{{request.session.win}}</h2>
+			<h2 class="lost">{{request.session.lost}}</h2>
+			<h2 id="luck">{{request.session.luck}}</h2>
+		<div id="ninja">
+			
+		</div>
 	</div>	
-	<input type="submit" value="Register">
-</form>
-<h3>Already registered? Login here!</h3>
-<p></p>
-<form action="/sessions" method="POST">
-{% csrf_token %}
-	<label>Email:</label>
-	<input type="text" name="email">
-	<p></p>
-	<label>Password:</label>
-	<input type="password" name="password">
-	<p></p>
-	<input type="submit" value="Login">
-</form>
-		
-{% endblock %}
+
+</body>
+</html>
