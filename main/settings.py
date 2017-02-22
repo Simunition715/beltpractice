@@ -119,4 +119,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "main", "static/css"),'/djregistration/apps/main/static/',
+STATIC_ROOT = os.path.join(BASE_DIR,"static"),'/djregistration/apps/main/static/',
