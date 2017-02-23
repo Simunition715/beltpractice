@@ -121,5 +121,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,"static"),
-    '/djregistration/apps/main/static/',
+    '/beltpractice/apps/main/static/',
 ]
