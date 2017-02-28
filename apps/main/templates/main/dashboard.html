@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Welcome {{curr_user.name}}</h1>
+	<h3><a href="logout">Logout</a></h3>
+	<h4><a href="add">Add Item</a></h4>
+
+	<div>
+		<table>
+			<head>
+				<tr>
+					<th>Item</th>
+					<th>Added By</th>
+					<th>Date Added</th>
+					<th>Action</th>
+				</tr>
+				{% for list in list %}
+				<tr>
+					<td><a href="/show/{{list.id}}">{{list.item}}</a></td>
+					<td>{{list.user.name}}</td>
+					<td>{{list.created_at}}</td>
+					<td><a href="remove/{{list.id}}">Delete</a></td>
+				</tr>
+				{% endfor %}
+			</head>
+		</table>
+	</div>
+	<label>Other Users' Wish List</label>
+	<table>
+			<head>
+				<tr>
+					<th>Item</th>
+					<th>Added By</th>
+					<th>Date Added</th>
+					<th>Action</th>
+				</tr>
+				{% for list in other %}
+				<tr>
+					<td><a href="/show/{{list.id}}">{{list.item}}</a></td>
+					<td>{{list.user.name}}</td>
+					<td>{{list.created_at}}</td>
+					<td><a href="plus">Add to my WishList</a></td>
+				</tr>
+				{% endfor %}
+			</head>
+		</table>
+</body>
+</html>

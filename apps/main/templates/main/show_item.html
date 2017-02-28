@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Items</title>
+</head>
+<body>
+{% for list in show %}
+	<h1>{{list.item}}</h1>
+	{% endfor %}
+	<h2>Users who added this product/item to thier wish list!</h2>
+	{% for list in show %}
+	<h3>{{list.user.name}}</h3>
+	{% endfor %}
+</body>
+</html>
